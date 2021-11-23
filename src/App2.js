@@ -20,7 +20,7 @@ function asyncComponent(importComponent) {
     async componentDidMount() {
       const { default: component } = await importComponent();
 
-      debugger
+      debugger;
 
       this.setState({
         component: component,
@@ -69,23 +69,9 @@ function App() {
             <hr />
             <Suspense fallback={<div>Loading...</div>}>
               <Switch>
-                <Route
-                  path="/home"
-                  exact
-                  component={asyncComponent(() => import(/* webpackChunkName: 'Home'*/"./pages/home"))}
-                />
-                <Route
-                  path="/about"
-                  component={asyncComponent(() => import(/* webpackChunkName: 'About'*/"./pages/about"))}
-                />
-                <Route
-                  path="/dashboard"
-                  component={asyncComponent(() => import(/* webpackChunkName: 'DashBoard'*/"./pages/dashborad"))}
-                />
-
-                {/* <Route path="/" exact component={HomeAsync} />
-                <Route path="/about" component={AboutAsync}/>
-                <Route path="/dashboard" component={DashBoradAsync}/> */}
+                <Route path="/" exact component={HomeAsync} />
+                <Route path="/about" component={AboutAsync} />
+                <Route path="/dashboard" component={DashBoradAsync} />
 
                 {/* <Route path="/" exact component={Home} />
                 <Route path="/about" component={About}/>
